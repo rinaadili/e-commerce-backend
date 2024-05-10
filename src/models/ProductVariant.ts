@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import Color from "./Color";
 import Size from "./Size";
+import {Product} from "./Product";
 @Entity('product_variant')
 @Unique(['barcode'])
 export default class ProductVariant {
@@ -31,13 +32,16 @@ export default class ProductVariant {
     productId: number;
 
     @CreateDateColumn()
-    date_created: Date
+    date_created: Date;
 
     @UpdateDateColumn()
-    date_updated: Date
+    date_updated: Date;
 
     @DeleteDateColumn()
-    date_deleted: Date
+    date_deleted: Date;
+
+    @ManyToOne(() => Product, (masterProduct) => masterProduct.productVariants, {onDelete: 'CASCADE'})
+    product: Product;
 
     @ManyToOne(() => Color, (color) => color.productVariants, {onDelete: 'CASCADE', eager: true})
     color: Color;

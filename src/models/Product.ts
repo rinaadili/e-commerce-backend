@@ -1,15 +1,16 @@
 import {
     Column,
     CreateDateColumn, DeleteDateColumn,
-    Entity,
-    ManyToOne,
+    Entity, ManyToOne,
     OneToMany,
     PrimaryGeneratedColumn,
     Unique,
     UpdateDateColumn
 } from "typeorm";
+import ProductVariant from "./ProductVariant";
+import Category from "./Category";
 
-@Entity('master_products')
+@Entity('products')
 @Unique(['barcode'])
 export class Product {
     @PrimaryGeneratedColumn()
@@ -35,4 +36,10 @@ export class Product {
 
     @DeleteDateColumn()
     date_deleted: Date;
+
+    @OneToMany(() => ProductVariant, (productVariant) => productVariant.product)
+    productVariants: ProductVariant[];
+
+    @ManyToOne(() => Category, (category) => category.products, {onDelete: 'CASCADE'})
+    category: Category;
 }

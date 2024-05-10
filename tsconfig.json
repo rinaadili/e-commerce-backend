@@ -8,5 +8,6 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
     "outDir": "./dist",                                  /* Redirect output structure to the directory. */
     "strictPropertyInitialization": false,               /* Enable strict checking of property initialization in classes. */
+    "emitDecoratorMetadata": true,
   }
 }
