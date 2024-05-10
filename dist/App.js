@@ -7,7 +7,6 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const bodyParser_1 = __importDefault(require("./middlewares/bodyParser"));
 const badRoute_1 = __importDefault(require("./middlewares/badRoute"));
-const ErrorExposer_1 = __importDefault(require("./middlewares/ErrorExposer"));
 const routes_1 = __importDefault(require("./routes"));
 class App {
     constructor() {
@@ -27,7 +26,6 @@ class App {
     loadRoutes() {
         this.app.use(routes_1.default);
         (0, badRoute_1.default)(this.app);
-        (0, ErrorExposer_1.default)(this.app);
     }
 }
 exports.default = new App().app;
