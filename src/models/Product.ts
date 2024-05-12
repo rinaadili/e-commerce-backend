@@ -28,6 +28,9 @@ export class Product {
     @Column({type: 'decimal', precision: 10, scale: 2, default: 0.0})
     price: number;
 
+    @Column()
+    categoryId: number;
+
     @CreateDateColumn()
     date_created: Date;
 

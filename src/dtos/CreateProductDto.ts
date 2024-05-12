@@ -19,10 +19,6 @@ export class CreateProductDto {
     @IsString()
     description: string;
 
-    @IsString()
-    @IsNotEmpty()
-    barcode: string;
-
     @ArrayNotEmpty()
     variants: Variants[];
 }

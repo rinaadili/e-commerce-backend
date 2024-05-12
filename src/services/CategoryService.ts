@@ -1,11 +1,13 @@
 import {AppDataSource} from "../database/app.datasource";
 import Category from "../models/Category";
+import {CreateCategoryDto} from "../dtos/CreateCategoryDto";
 
 class CategoryService {
     private categoryRepository = AppDataSource.getRepository(Category);
 
-    async getCategories() {
-        return await this.categoryRepository.find();
+    async createCategory(data: CreateCategoryDto) {
+        const category = this.categoryRepository.create(data);
+        return await this.categoryRepository.save(category);
     }
 
     async getCategoryById(categoryId: number) {
