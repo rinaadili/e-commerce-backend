@@ -77,7 +77,7 @@ When a product is created, a unique barcode is generated and assigned to the pro
 
 ## Postman Collection
 
-The link to the Postman Collection where you can find all the endpoints is [here](https://api.postman.com/collections/18622322-2bf0cccb-f882-4abc-a8e1-1ffa496633b6?access_key=PMAT-01HXPRP5PE7PSV5W4EWSS5ZQ0H).
+I have provided a Postman Collection that contains the endpoints for the application. You can import the collection into Postman and test the endpoints.
 
 ### Creating a product
 
